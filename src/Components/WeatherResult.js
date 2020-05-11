@@ -1,44 +1,28 @@
 import React, { Component, Fragment } from "react";
 
 class WeatherResult extends Component {
-  renderList = () => {
-    return this.props.result.map((elem, index) => {
-      console.log(elem, "ELEMENt");
-      return (
-        <table key={index}>
-          <thead>
-            <tr>Location</tr>
-            <tr>Temp</tr>
-          </thead>
-          <tbody>
-            <tr key={index}>
-              <td>{elem.location}</td>
-              <td>{elem.temp}</td>
-            </tr>
-          </tbody>
-        </table>
-      );
-    });
-  };
   render() {
-    console.log(this.props.result, "ASDFG");
+    console.log(this.props.result.data, "RESULT");
     return (
       <Fragment>
         <table>
           <thead>
             <tr>
               <th>Location</th>
-              <th>Temp</th>
+              <th>Date</th>
+              <th>Temperature in 'C </th>
             </tr>
           </thead>
           <tbody>
-            {this.props.result.length > 0 &&
-              this.props.result.map((elem, item) => (
-                <tr key={item}>
-                  <td>{elem.location}</td>
-                  <td>{elem.temp}</td>
-                </tr>
-              ))}
+            {this.props.result.data !== undefined && (
+              <tr>
+                <td>{this.props.result.data.name}</td>
+                <td>{this.props.result.data.dt}</td>
+                <td style={{ padding: "2px", margin: "2px" }}>
+                  {this.props.result.data.main.temp - 273.15} `c
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </Fragment>

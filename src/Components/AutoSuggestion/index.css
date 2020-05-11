@@ -1,0 +1,16 @@
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  border: 1px solid #333333;
+}
+
+ol li {
+  background: #dfd5d5;
+  border: 1px solid #333333;
+  border-top: 0px;
+  list-style: none;
+  cursor: pointer;
+}
